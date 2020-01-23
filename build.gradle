@@ -1,12 +1,16 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.1.RELEASE'
+
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
 }
 
 group = 'org.launchcode'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
+sourceCompatibility = '13'
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 
 configurations {
 	developmentOnly

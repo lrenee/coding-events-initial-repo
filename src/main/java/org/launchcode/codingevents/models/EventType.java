@@ -1,8 +1,11 @@
 package org.launchcode.codingevents.models;
 
+<<<<<<< HEAD
 /**
  * Created by Chris Bay
  */
+=======
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 public enum EventType {
 
     CONFERENCE("Conference"),
@@ -19,4 +22,8 @@ public enum EventType {
     public String getDisplayName() {
         return displayName;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 }

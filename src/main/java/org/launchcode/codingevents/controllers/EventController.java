@@ -1,5 +1,8 @@
 package org.launchcode.codingevents.controllers;
 
+
+///  import org.launchcode.codingevents.data.EventData;
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventType;
@@ -11,9 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-/**
- * Created by Chris Bay
- */
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
 @Controller
 @RequestMapping("events")
 public class EventController {
@@ -21,13 +25,29 @@ public class EventController {
     @Autowired
     private EventRepository eventRepository;
 
+
+    /// findAll, save, findById
+    /// any time EventData is referenced, I need to replace with an
+    /// eventRepository method / action
+
+//    private static List<Event> events = new ArrayList<>();
+
     @GetMapping
     public String displayAllEvents(Model model) {
         model.addAttribute("title", "All Events");
+///        model.addAttribute("events", EventData.getAll());
         model.addAttribute("events", eventRepository.findAll());
+//        List<String> events = new ArrayList<>();
+//        events.add("Code With Pride");
+//        events.add("Strange Loop");
+//        events.add("Apple WWDC");
+//        events.add("SpringOne Platform");
+//        model.addAttribute("events", events);
         return "events/index";
     }
 
+    // lives at /events/create
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
@@ -36,14 +56,27 @@ public class EventController {
         return "events/create";
     }
 
+
+    // lives at /events/create
+    // @PostMapping("create")
+    // public String processCreateEventForm(@RequestParam String eventName,
+    //                                      @RequestParam String eventDescription) {
+    //     EventData.add(new Event(eventName, eventDescription));
+    //     return "redirect:";
+    // }
+
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
     @PostMapping("create")
     public String processCreateEventForm(@ModelAttribute @Valid Event newEvent,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Event");
+
+//            model.addAttribute("errorMsg", "Bad data!");
             return "events/create";
         }
-
+///        EventData.add(newEvent);
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
         eventRepository.save(newEvent);
         return "redirect:";
     }
@@ -52,6 +85,9 @@ public class EventController {
     public String displayDeleteEventForm(Model model) {
         model.addAttribute("title", "Delete Events");
         model.addAttribute("events", eventRepository.findAll());
+
+///        model.addAttribute("events", EventData.getAll());
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
         return "events/delete";
     }
 
@@ -61,9 +97,10 @@ public class EventController {
         if (eventIds != null) {
             for (int id : eventIds) {
                 eventRepository.deleteById(id);
+///                EventData.remove(id);
             }
         }
-
+>>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
         return "redirect:";
     }
 
