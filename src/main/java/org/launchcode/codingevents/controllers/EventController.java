@@ -2,7 +2,7 @@ package org.launchcode.codingevents.controllers;
 
 
 ///  import org.launchcode.codingevents.data.EventData;
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventType;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
 @Controller
 @RequestMapping("events")
 public class EventController {
@@ -47,7 +47,7 @@ public class EventController {
     }
 
     // lives at /events/create
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
@@ -65,7 +65,7 @@ public class EventController {
     //     return "redirect:";
     // }
 
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
     @PostMapping("create")
     public String processCreateEventForm(@ModelAttribute @Valid Event newEvent,
                                          Errors errors, Model model) {
@@ -76,7 +76,7 @@ public class EventController {
             return "events/create";
         }
 ///        EventData.add(newEvent);
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
         eventRepository.save(newEvent);
         return "redirect:";
     }
@@ -87,7 +87,7 @@ public class EventController {
         model.addAttribute("events", eventRepository.findAll());
 
 ///        model.addAttribute("events", EventData.getAll());
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
         return "events/delete";
     }
 
@@ -100,7 +100,7 @@ public class EventController {
 ///                EventData.remove(id);
             }
         }
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+
         return "redirect:";
     }
 
