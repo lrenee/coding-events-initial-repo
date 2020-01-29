@@ -3,9 +3,10 @@ package org.launchcode.codingevents.controllers;
 
 ///  import org.launchcode.codingevents.data.EventData;
 
+import org.launchcode.codingevents.data.EventCategoryRepository;
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
-import org.launchcode.codingevents.models.EventType;
+// import org.launchcode.codingevents.models.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,8 @@ public class EventController {
     @Autowired
     private EventRepository eventRepository;
 
+    @Autowired
+    private EventCategoryRepository eventCategoryRepository;
 
     /// findAll, save, findById
     /// any time EventData is referenced, I need to replace with an
@@ -52,7 +55,8 @@ public class EventController {
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
-        model.addAttribute("types", EventType.values());
+        model.addAttribute("categories", eventCategoryRepository.findAll());
+//        model.addAttribute("types", EventType.values());
         return "events/create";
     }
 
