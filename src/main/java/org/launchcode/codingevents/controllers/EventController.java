@@ -49,7 +49,7 @@ public class EventController {
 //        events.add("SpringOne Platform");
 //        model.addAttribute("events", events);
     @GetMapping
-    public String displayAllEvents(@RequestParam(required = false) Integer categoryId, Model model) {
+    public String displayEvents(@RequestParam(required = false) Integer categoryId, Model model) {
 
         if (categoryId == null) {
             model.addAttribute("title", "All Events");
