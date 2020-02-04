@@ -1,10 +1,13 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 // import javax.persistence.GeneratedValue;
 // import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Email;
+// import javax.validation.constraints.Email;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,30 +24,36 @@ public class Event extends AbstractEntity {
 
     @NotBlank(message = "Name is required.")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
-
     private String name;
 
-    @Size(max = 500, message = "Description too long!")
-    private String description;
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    @NotNull(message = "Event details are required.")
+    private EventDetails eventDetails;
 
-    @NotBlank(message = "Email is required.")
-    @Email(message = "Invalid email.  Try again.")
+//    @Size(max = 500, message = "Description too long!")
+//    private String description;
 
-    private String contactEmail;
+//    @NotBlank(message = "Email is required.")
+//    @Email(message = "Invalid email.  Try again.")
+
+//    private String contactEmail;
 
     @ManyToOne
     @NotNull(message = "Category is required.")
     private EventCategory eventCategory;
 //    private EventType type;
 
-    public Event(String name, String description, String contactEmail, EventCategory eventCategory) {
+    public Event(String name, EventCategory eventCategory) {
+//    public Event(String name, EventDetails eventDetails, EventCategory eventCategory) {
+//    public Event(String name, String description, String contactEmail, EventCategory eventCategory) {
 //    public Event(String name, String description, String contactEmail, EventType type) {
-
 //        this();
 
         this.name = name;
-        this.description = description;
-        this.contactEmail = contactEmail;
+//        this.eventDetails = eventDetails;
+//        this.description = description;
+//        this.contactEmail = contactEmail;
         this.eventCategory = eventCategory;
 //        this.type = type;
     }
@@ -64,21 +73,29 @@ public class Event extends AbstractEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public EventDetails getEventDetails() {
+        return eventDetails;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEventDetails(EventDetails eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
-    public String getContactEmail() {
-        return contactEmail;
-    }
+    //    public String getDescription() {
+//        return description;
+//    }
 
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
-    }
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+
+//    public String getContactEmail() {
+//        return contactEmail;
+//    }
+
+//    public void setContactEmail(String contactEmail) {
+//        this.contactEmail = contactEmail;
+//    }
 
     public EventCategory getEventCategory() {
         return eventCategory;
