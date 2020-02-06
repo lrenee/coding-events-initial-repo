@@ -1,15 +1,8 @@
 body {
-<<<<<<< HEAD
   font-size: 14px;
-}
-.error {
-  color: red;
-=======
-    font-size: 14px;
-    color: purple;
 }
 
 .error {
-    color: red;
->>>>>>> 0d0b1ee592402a5d50e0ec82c5e67377a33527d5
+  color: red;
 }
+
