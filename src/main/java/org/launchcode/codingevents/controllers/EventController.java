@@ -161,7 +161,7 @@ public class EventController {
         EventTagDTO eventTag = new EventTagDTO();
         eventTag.setEvent(event);
         model.addAttribute("eventTag", eventTag);
-        return "events/add-tag.html";
+        return "events/add-tag";
     }
 
     @PostMapping("add-tag")
